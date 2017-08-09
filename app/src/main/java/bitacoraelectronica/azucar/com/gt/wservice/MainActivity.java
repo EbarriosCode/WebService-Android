@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -23,6 +24,7 @@ import bitacoraelectronica.azucar.com.gt.wservice.WebServiceCODFA.adapters.listV
 import bitacoraelectronica.azucar.com.gt.wservice.WebServiceCODFA.parsers.UsuarioJSONParser;
 import bitacoraelectronica.azucar.com.gt.wservice.WebServiceCODFA.pojo.Usuario;
 import bitacoraelectronica.azucar.com.gt.wservice.WebServiceRetrofit.activities.MainWebApiActivity;
+import bitacoraelectronica.azucar.com.gt.wservice.WebServiceRetrofit.models.Users;
 
 public class MainActivity extends AppCompatActivity {
     Button btnDatos, btnRecycler,btnIrApi;
@@ -87,6 +89,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,MainRecyclerActivity.class));
             }
         });
+
+        Users u = new Users("DEV","ANDROID",123456,"GOOGLE");
+        System.out.println(u.toString());
+        new MyTaskPost().execute(u);
     }
 
     public void cargarDatos() {
@@ -186,4 +192,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private class MyTaskPost extends AsyncTask<Users,Void,Void>{
+
+        @Override
+        protected Void doInBackground(Users... params) {
+            String uri = "http://www.ebarrios.somee.com/api/Usuarios";
+            Log.d("Objeto"," ->> "+params[0].toString());
+            HttpManager.postData(params[0],uri);
+            return null;
+        }
+    }
 }

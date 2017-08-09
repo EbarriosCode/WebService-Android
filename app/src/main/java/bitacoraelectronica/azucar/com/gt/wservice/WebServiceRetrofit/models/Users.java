@@ -60,4 +60,15 @@ public class Users {
     public void setCity(String city) {
         City = city;
     }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "UserId=" + UserId +
+                ", UserName='" + UserName + '\'' +
+                ", LastName='" + LastName + '\'' +
+                ", Phone=" + Phone +
+                ", City='" + City + '\'' +
+                '}';
+    }
 }
