@@ -10,14 +10,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:weightSum="3">
 
         <Button
             android:id="@+id/btnDatos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cargar Datos ListView"
+            android:text="WebService Cargar Datos ListView"
             android:layout_weight="1"
             />
 
@@ -25,7 +25,7 @@
             android:id="@+id/btnRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cargar Datos recyclerView"
+            android:text="WebService Cargar Datos recyclerView"
             android:layout_weight="1"
             />
 
@@ -33,7 +33,7 @@
             android:id="@+id/btnIrApi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Datos API-REST"
+            android:text="Datos API-REST .net"
             android:layout_weight="1"
             />
     </LinearLayout>
